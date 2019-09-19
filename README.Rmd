@@ -1,0 +1,112 @@
+---
+output: 
+  bookdown::gitbook
+  
+  
+---
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+library(tidyverse)
+library(DT)
+```
+
+<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<style>
+header{position: fixed; 
+top:20px; 
+right: 50px; 
+padding:1px; 
+z-index: 1000;}
+
+div.b {
+  text-decoration-line: overline;
+  text-decoration-style: wavy;
+  text-decoration-color: #8300b5;
+  font-weight: bold;
+  color: #696969;
+  font-size: 32pt;
+}
+
+</style>
+
+<div class="jumbotron text-center" style="background-color:#ffffff; margin-top:0">
+  <div class ='fa fa-seedling'style='color:#006cff;font-size:32px'></i></div>
+  <div class ='fa fa-seedling'style='color:#00ff17;font-size:32px'></i></div>
+  <div class ='fa fa-seedling'style='color:#fff200;font-size:32px'></i></div>
+  <div class ='fa fa-seedling'style='color:red;font-size:32px'></i></div>
+  <div class = 'b'>FluoroLogger</div>
+  <p style="color:#696969"> <i><b>By Jared Brabazon</b></i></p>
+  <p style="color:#696969"> <i>8/4/2019</i></p>
+</div>
+
+                   
+<hr>
+# How to use the Fluorogger {-}
+The FluoroLogger application allows for an easy approach to visualize and normalize Fluorolog scans. Several intuitive steps can be followed to get exported data combined into a user friendly and more approachable format.
+<hr>
+# Create a File_Name/Sample_Name .csv
+</t> When using the Fluorolog’s default software FluorEssence version 3.8.0.60 it is difficult to export user specified filenames along with the HJY exported Fluorolog scans (.dat file format). To solve this problem, a user can record scan numbers with scan identifying information in a separate .csv (comma-separated values) file. This .csv file should contain two columns, one called “File_Name” and one called “Sample_Name.” It is to be noted that the app will only accept these names spelled in this manner for the column headers. The File_Name column should contain the exact names of the .dat files as output from FluorEssence. The Sample_Name column should contain the user specified names associated with each scan. 
+</t> While recording scans in FluorEssence, do not delete scans or change scan names in the FluorEssence software. If a scan is unusable, indicate on the .csv file not to use the scan in the analysis. To export the scan data from FluorEssence navigate to File and then HJY Export. In the HJY_Export window, select the button with “…” on the right side. In the following window, highlight all files in the left box and click the button with “>>” to move scans to the right box. Select OK. In the HJY_Export window select the ASCII file format. Save the scans to an easily accessible file location. 
+
+
+# Load Information and Data to Make a Table
+By clicking on the browse button under step 1 on the dataset tab, a user can import the sample information .csv file into the app (figure 1). The application will produce an error if any sample names are duplicated; this ensures no errors occur later on in the process. The next step is to load the .dat files into the app. This is done by selecting the browse button under step 2 on the dataset tab. A window will appear where the user can select the desired .dat files to be loaded. A blue progress bar will indicate the completion of upload (figure 1). To make a data table from the .csv and .dat files, select the make table button (figure 1). The user can preview in long and/or wide formats or download the data in either of those formats by selecting the appropriate button.
+<hr>
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+example <- read_csv("../Data/fluorolog/20190429_mVenus_SampleNames.csv")%>%
+  filter(Excitation == 465) %>%
+    select(File_Name, Sample_Name)
+
+datatable(example, options = list(dom = 't'), caption = "Table 1: Example of .csv format to load into Fluorologger application." )
+```
+<hr>
+```{r fig3, fig.align="center", out.width = "100%",echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.cap= "Fluorologger screenshot of Dataset tab with example.csv and .dat file input."}
+knitr::include_graphics(path = "./figures/3.PNG")
+```
+<hr>
+# Normalization
+Now that a dataset has been made, the user can proceed to the normalization tab on the app to normalize the Fluorolog data seen in figure 2. 
+<hr>
+```{r fig6, fig.align="center", out.width = "100%",echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.cap= "Fluorologger screenshot of Normalization tab sample input."}
+knitr::include_graphics(path = "./figures/6.PNG")
+```
+<hr>
+## Select Negative Controls
+The first step in normalization is to select one or several samples to serve as negative controls. If several controls are chosen, the values will be averaged prior to normalization. To illustrate this, two controls are selected in figure 2.
+<hr>
+
+## Select Replicates
+Like the selection of negative controls, one or several samples can be chosen. If the user chooses several replicates for step 2 these values will be averaged prior to normalization and analyzed as a single data point against the averaged negative control. To illustrate, six replicates are selected as shown in figure 2.
+<hr>
+
+## Visualize the Negative Controls and Replicates
+Visualize the results by selecting the plot raw button. A plot will then appear with the replicate (or averaged replicates if several samples selected) shown in green, and the negative control (or averaged negative controls) shown in gray. The x-axis shows emission wavelength given in nanometers and the y-axis shows fluorescence measurement indicated in counts per second (figure 2).
+<hr>
+## Select the normalization value
+A box with metadata will appear when hovering the mouse over the lines of the plot with several categories shown for both the controls and replicates. The definitions of these metadata are shown below: <br>
+
+  * <b> difference - </b> The difference between the replicate (or averaged replicates) and the control (or averaged controls) in counts per second for a given wavelength. <br>
+  * <b> stdev_neg_controls -</b> The standard deviation of the negative controls at that given nanometer. Note that this value will not exist if only one control is used.  <br>
+  * <b> stdev_replicates -</b> The standard deviation of the replicates at that given nanometer. Note that this value will not exist if only one replicate is used.  <br>
+  * <b> avg_neg_controls - </b> The averaged value of all negative controls for that given nanometer.  <br>
+  * <b> avg_replicates - </b> The averaged value of all replicates for that given nanometer.
+  * <b> nm - </b> This term is an abbreviation for nanometer of excitation  <br>
+
+To normalize, enter the difference value from the metadata into the step 4 normalization value box as shown in figure 3. Users can also choose a different color for the plot in step 5 (here shown in red) and choose the bounds of the x-axis by selecting desired left and right boundary values for the plot in steps 6 and 7. To produce the normalized plot click the plot normalized button under step 7. 
+<hr>
+```{r fig7, fig.align="center", out.width = "100%",echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.cap= "Fluorologger screenshot of Normalization tab steps 4 through 6."}
+knitr::include_graphics(path = "./figures/7.PNG")
+```
+<hr>
+
+## Name Normalized Data and Merge Datasets
+If the data is one sample of a larger experiment, the Fluorologger app can also export numerous normalized samples in .csv format simultaneously. After plotting the normalized values, provide a name for this normalized data in step 8. Once the name is chosen, select the button labelled “Send to final dataset.” When this button is selected, a pop-up will appear on the lower right of the screen indicating that the data have been sent to the data merger tab. The normalization and data naming process above can be repeated as many times as desired for different combinations of negative controls and replicates. Under the data merger tab select the normalized datasets that will be merged together by clicking on at least two different datasets on the left-hand side of the Fluorologger app as seen in figure 4. The user can preview in long and/or wide formats or download the data in either of those formats by selecting the appropriate button.
+<hr>
+```{r fig9, fig.align="center", fig.align="center", out.width = "100%",echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.cap= "Fluorologger screenshot of Data Merger tab."}
+knitr::include_graphics(path = "./figures/9.PNG")
+```
+<hr>
+
