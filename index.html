@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>README_gitbook.utf8.md</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="README_gitbook.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="README_gitbook.utf8.md" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.8/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path=""><a href="#how-to-use-the-fluorogger"><i class="fa fa-check"></i>How to use the Fluorogger</a></li>
+<li class="chapter" data-level="1" data-path=""><a href="#create-a-file_namesample_name-.csv"><i class="fa fa-check"></i><b>1</b> Create a File_Name/Sample_Name .csv</a></li>
+<li class="chapter" data-level="2" data-path=""><a href="#load-information-and-data-to-make-a-table"><i class="fa fa-check"></i><b>2</b> Load Information and Data to Make a Table</a></li>
+<li class="chapter" data-level="3" data-path=""><a href="#normalization"><i class="fa fa-check"></i><b>3</b> Normalization</a><ul>
+<li class="chapter" data-level="3.1" data-path=""><a href="#select-negative-controls"><i class="fa fa-check"></i><b>3.1</b> Select Negative Controls</a></li>
+<li class="chapter" data-level="3.2" data-path=""><a href="#select-replicates"><i class="fa fa-check"></i><b>3.2</b> Select Replicates</a></li>
+<li class="chapter" data-level="3.3" data-path=""><a href="#visualize-the-negative-controls-and-replicates"><i class="fa fa-check"></i><b>3.3</b> Visualize the Negative Controls and Replicates</a></li>
+<li class="chapter" data-level="3.4" data-path=""><a href="#select-the-normalization-value"><i class="fa fa-check"></i><b>3.4</b> Select the normalization value</a></li>
+<li class="chapter" data-level="3.5" data-path=""><a href="#name-normalized-data-and-merge-datasets"><i class="fa fa-check"></i><b>3.5</b> Name Normalized Data and Merge Datasets</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style>
+header{position: fixed; 
+top:20px; 
+right: 50px; 
+padding:1px; 
+z-index: 1000;}
+
+div.b {
+  text-decoration-line: overline;
+  text-decoration-style: wavy;
+  text-decoration-color: #8300b5;
+  font-weight: bold;
+  color: #696969;
+  font-size: 32pt;
+}
+
+</style>
+<div class="jumbotron text-center" style="background-color:#ffffff; margin-top:0">
+<div class="fa fa-seedling" style="color:#006cff;font-size:32px">
+</i>
+</div>
+<div class="fa fa-seedling" style="color:#00ff17;font-size:32px">
+</i>
+</div>
+<div class="fa fa-seedling" style="color:#fff200;font-size:32px">
+</i>
+</div>
+<div class="fa fa-seedling" style="color:red;font-size:32px">
+</i>
+</div>
+<div class="b">
+FluoroLogger
+</div>
+<p style="color:#696969">
+<i><b>By Jared Brabazon</b></i>
+</p>
+<p style="color:#696969">
+<i>8/4/2019</i>
+</p>
+</div>
+<hr>
+<div id="how-to-use-the-fluorogger" class="section level1 unnumbered">
+<h1>How to use the Fluorogger</h1>
+The FluoroLogger application allows for an easy approach to visualize and normalize Fluorolog scans. Several intuitive steps can be followed to get exported data combined into a user friendly and more approachable format.
+<hr>
+</div>
+<div id="create-a-file_namesample_name-.csv" class="section level1">
+<h1><span class="header-section-number">1</span> Create a File_Name/Sample_Name .csv</h1>
+<p></t> When using the Fluorolog’s default software FluorEssence version 3.8.0.60 it is difficult to export user specified filenames along with the HJY exported Fluorolog scans (.dat file format). To solve this problem, a user can record scan numbers with scan identifying information in a separate .csv (comma-separated values) file. This .csv file should contain two columns, one called “File_Name” and one called “Sample_Name.” It is to be noted that the app will only accept these names spelled in this manner for the column headers. The File_Name column should contain the exact names of the .dat files as output from FluorEssence. The Sample_Name column should contain the user specified names associated with each scan.
+</t> While recording scans in FluorEssence, do not delete scans or change scan names in the FluorEssence software. If a scan is unusable, indicate on the .csv file not to use the scan in the analysis. To export the scan data from FluorEssence navigate to File and then HJY Export. In the HJY_Export window, select the button with “…” on the right side. In the following window, highlight all files in the left box and click the button with “&gt;&gt;” to move scans to the right box. Select OK. In the HJY_Export window select the ASCII file format. Save the scans to an easily accessible file location.</p>
+</div>
+<div id="load-information-and-data-to-make-a-table" class="section level1">
+<h1><span class="header-section-number">2</span> Load Information and Data to Make a Table</h1>
+By clicking on the browse button under step 1 on the dataset tab, a user can import the sample information .csv file into the app (figure 1). The application will produce an error if any sample names are duplicated; this ensures no errors occur later on in the process. The next step is to load the .dat files into the app. This is done by selecting the browse button under step 2 on the dataset tab. A window will appear where the user can select the desired .dat files to be loaded. A blue progress bar will indicate the completion of upload (figure 1). To make a data table from the .csv and .dat files, select the make table button (figure 1). The user can preview in long and/or wide formats or download the data in either of those formats by selecting the appropriate button.
+<hr>
+<div id="htmlwidget-bb578cd9e789fa860048" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bb578cd9e789fa860048">{"x":{"filter":"none","caption":"<caption>Table 1: Example of .csv format to load into Fluorologger application.<\/caption>","data":[["1","2","3","4","5","6","7","8","9"],["DfltEm (08)_Graph.dat","DfltEm (09)_Graph.dat","DfltEm (10)_Graph.dat","DfltEm (11)_Graph.dat","DfltEm (12)_Graph.dat","DfltEm (13)_Graph.dat","DfltEm (14)_Graph.dat","DfltEm (15)_Graph.dat","DfltEm (16)_Graph.dat"],["mVenus_465_01","mVenus_465_02","mVenus_465_03","mVenus_465_04","mVenus_465_05","mVenus_465_06","Blank_465_01","Blank_465_02","Blank_465_03"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>File_Name<\/th>\n      <th>Sample_Name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<hr>
+<div class="figure" style="text-align: center"><span id="fig:fig3"></span>
+<img src="figures/3.PNG" alt="Fluorologger screenshot of Dataset tab with example.csv and .dat file input." width="100%" />
+<p class="caption">
+Figure 2.1: Fluorologger screenshot of Dataset tab with example.csv and .dat file input.
+</p>
+</div>
+<hr>
+</div>
+<div id="normalization" class="section level1">
+<h1><span class="header-section-number">3</span> Normalization</h1>
+Now that a dataset has been made, the user can proceed to the normalization tab on the app to normalize the Fluorolog data seen in figure 2.
+<hr>
+<div class="figure" style="text-align: center"><span id="fig:fig6"></span>
+<img src="figures/6.PNG" alt="Fluorologger screenshot of Normalization tab sample input." width="100%" />
+<p class="caption">
+Figure 3.1: Fluorologger screenshot of Normalization tab sample input.
+</p>
+</div>
+<hr>
+<div id="select-negative-controls" class="section level2">
+<h2><span class="header-section-number">3.1</span> Select Negative Controls</h2>
+The first step in normalization is to select one or several samples to serve as negative controls. If several controls are chosen, the values will be averaged prior to normalization. To illustrate this, two controls are selected in figure 2.
+<hr>
+</div>
+<div id="select-replicates" class="section level2">
+<h2><span class="header-section-number">3.2</span> Select Replicates</h2>
+Like the selection of negative controls, one or several samples can be chosen. If the user chooses several replicates for step 2 these values will be averaged prior to normalization and analyzed as a single data point against the averaged negative control. To illustrate, six replicates are selected as shown in figure 2.
+<hr>
+</div>
+<div id="visualize-the-negative-controls-and-replicates" class="section level2">
+<h2><span class="header-section-number">3.3</span> Visualize the Negative Controls and Replicates</h2>
+Visualize the results by selecting the plot raw button. A plot will then appear with the replicate (or averaged replicates if several samples selected) shown in green, and the negative control (or averaged negative controls) shown in gray. The x-axis shows emission wavelength given in nanometers and the y-axis shows fluorescence measurement indicated in counts per second (figure 2).
+<hr>
+</div>
+<div id="select-the-normalization-value" class="section level2">
+<h2><span class="header-section-number">3.4</span> Select the normalization value</h2>
+<p>A box with metadata will appear when hovering the mouse over the lines of the plot with several categories shown for both the controls and replicates. The definitions of these metadata are shown below: <br></p>
+<ul>
+<li><b> difference - </b> The difference between the replicate (or averaged replicates) and the control (or averaged controls) in counts per second for a given wavelength. <br></li>
+<li><b> stdev_neg_controls -</b> The standard deviation of the negative controls at that given nanometer. Note that this value will not exist if only one control is used. <br></li>
+<li><b> stdev_replicates -</b> The standard deviation of the replicates at that given nanometer. Note that this value will not exist if only one replicate is used. <br></li>
+<li><b> avg_neg_controls - </b> The averaged value of all negative controls for that given nanometer. <br></li>
+<li><b> avg_replicates - </b> The averaged value of all replicates for that given nanometer.</li>
+<li><b> nm - </b> This term is an abbreviation for nanometer of excitation <br></li>
+</ul>
+To normalize, enter the difference value from the metadata into the step 4 normalization value box as shown in figure 3. Users can also choose a different color for the plot in step 5 (here shown in red) and choose the bounds of the x-axis by selecting desired left and right boundary values for the plot in steps 6 and 7. To produce the normalized plot click the plot normalized button under step 7.
+<hr>
+<div class="figure" style="text-align: center"><span id="fig:fig7"></span>
+<img src="figures/7.PNG" alt="Fluorologger screenshot of Normalization tab steps 4 through 6." width="100%" />
+<p class="caption">
+Figure 3.2: Fluorologger screenshot of Normalization tab steps 4 through 6.
+</p>
+</div>
+<hr>
+</div>
+<div id="name-normalized-data-and-merge-datasets" class="section level2">
+<h2><span class="header-section-number">3.5</span> Name Normalized Data and Merge Datasets</h2>
+If the data is one sample of a larger experiment, the Fluorologger app can also export numerous normalized samples in .csv format simultaneously. After plotting the normalized values, provide a name for this normalized data in step 8. Once the name is chosen, select the button labelled “Send to final dataset.” When this button is selected, a pop-up will appear on the lower right of the screen indicating that the data have been sent to the data merger tab. The normalization and data naming process above can be repeated as many times as desired for different combinations of negative controls and replicates. Under the data merger tab select the normalized datasets that will be merged together by clicking on at least two different datasets on the left-hand side of the Fluorologger app as seen in figure 4. The user can preview in long and/or wide formats or download the data in either of those formats by selecting the appropriate button.
+<hr>
+<div class="figure" style="text-align: center"><span id="fig:fig9"></span>
+<img src="figures/9.PNG" alt="Fluorologger screenshot of Data Merger tab." width="100%" />
+<p class="caption">
+Figure 3.3: Fluorologger screenshot of Data Merger tab.
+</p>
+</div>
+<hr>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
